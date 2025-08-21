@@ -163,7 +163,37 @@
         @if ($data->status === 'pending' || $data->status === 'diproses')
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-4">
                 <div class="bg-white dark:bg-slate-800 overflow-hidden shadow-sm sm:rounded-lg p-4">
+                    <form method="post" action="" class="mt-6 space-y-6">
+                        @csrf
 
+                        <div>
+                            <x-input-label for="deskripsi_tanggapan" :value="__('Status')" />
+                            <select name="status" required id="status" class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
+                                <option value="{{$data->status}}">{{$data->status}}</option>
+                                <option value="diproses">diproses</option>
+                                <option value="selesai">selesai</option>
+                                <option value="ditolak">ditolak</option>
+                            </select>
+                            <x-input-error class="mt-2" :messages="$errors->get('deskripsi_tanggapan')" />
+                        </div>
+
+                        <div>
+                            <x-input-label for="deskripsi_tanggapan" :value="__('Respon/ Tanggapan')" />
+                            <textarea name="deskripsi_tanggapan"
+                                class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                                id=""></textarea>
+                            <x-input-error class="mt-2" :messages="$errors->get('deskripsi_tanggapan')" />
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-4">
+                                <x-primary-button>{{ __('Save') }}</x-primary-button>
+                                @if (session('success'))
+                                    <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
+                                        class="text-sm text-gray-600 dark:text-gray-400">{{ __('Saved.') }}</p>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         @endif
