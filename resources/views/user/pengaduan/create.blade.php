@@ -9,9 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6">
-                    <form method="post" action="" class="mt-6 space-y-6">
+                    <form method="post" action="{{route('pengaduan.store')}}" enctype="multipart/form-data" class="mt-6 space-y-6">
                         @csrf
-
                         <div>
                             <x-input-label for="judul_pengaduan" :value="__('Judul Pengaduan')" />
                             <x-text-input id="judul_pengaduan" name="judul_pengaduan" type="text" class="mt-1 block w-full"
@@ -21,14 +20,14 @@
                         </div>
                         <div>
                             <x-input-label for="dokumentasi" :value="__('Dokumentasi')" />
-                            <x-text-input id="dokumentasi" name="dokumentasi" type="file" class="p-3 mt-1 block w-full"
+                            <x-text-input id="dokumentasi" name="dokumentasi" type="file" accept="image/*" class="p-4 mt-1 block w-full"
                                 :value="old('dokumentasi')"
                                 required autofocus autocomplete="dokumentasi" />
                             <x-input-error class="mt-2" :messages="$errors->get('dokumentasi')" />
                         </div>
                         <div>
                             <x-input-label for="deskripsi_pengaduan" :value="__('Deskripsi Pengaduan')" />
-                            <textarea name="deskripsi_pengaduan" class="mt-1 block w-full" id=""></textarea>
+                            <textarea name="deskripsi_pengaduan" class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" id=""></textarea>
                             <x-input-error class="mt-2" :messages="$errors->get('deskripsi_pengaduan')" />
                         </div>
                         <div>

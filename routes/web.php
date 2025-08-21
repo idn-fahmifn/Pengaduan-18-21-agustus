@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,11 @@ Route::prefix('user')->middleware(['auth', 'verified'])->group(function(){
 
     // halaman dashboard
     Route::get('dashboard', [DashboardController::class, 'user'])->name('dashboard.user');
+    Route::get('pengaduan/create', [PengaduanController::class, 'create'])
+    ->name('pengaduan.create');
+
+    Route::post('pengaduan/save', [PengaduanController::class, 'store'])
+    ->name('pengaduan.store');
 
 
 });
