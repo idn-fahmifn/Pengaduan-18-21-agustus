@@ -200,7 +200,16 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-4">
             <div class="bg-white dark:bg-slate-800 overflow-hidden shadow-sm sm:rounded-lg p-4">
-
+                @forelse ($respon as $item)
+                    <div class="p-4 min-w-full mt-2 dark:text-white">
+                        <p class="text-md">{{$item->deskripsi_tanggapan}}</p>
+                        <span class="text-sm">{{$item->created_at}}</span>
+                    </div>
+                @empty
+                    <div class="p-4 min-w-full mt-2 bg-yellow-300">
+                        <span class="text-sm">Belum ada tanggapan</span>
+                    </div>
+                @endforelse
             </div>
         </div>
 

@@ -11,13 +11,14 @@ class ResponController extends Controller
     public function detail($id)
     {
         $data = Pengaduan::where('id', $id)->first();
+        $respon = Respon::where('pengaduan_id', $id)->get();
 
         if($data){
             $data = Pengaduan::find($id);
         }else{
             return redirect()->route('dashboard');
         }
-        return view('admin.pengaduan.detail', compact('data'));
+        return view('admin.pengaduan.detail', compact('data', 'respon'));
     }
 
     public function store(Request $request, $id)
