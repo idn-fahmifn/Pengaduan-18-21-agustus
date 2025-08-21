@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengaduan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -14,6 +16,10 @@ class DashboardController extends Controller
 
     public function user()
     {
-        return view('user.dashboard');
+        $data = Pengaduan::where('user_id', Auth::user()->id)
+        ->get();
+        return view('user.dashboard', [
+            'data' => $data
+        ]);
     }
 }
