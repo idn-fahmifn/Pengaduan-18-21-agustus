@@ -17,6 +17,8 @@ Route::prefix('admin')->middleware(['auth', 'verified','admin'])->group(function
     Route::get('dashboard', [DashboardController::class, 'admin'])->name('dashboard');
     Route::get('pengaduan/{param}', [ResponController::class, 'detail'])
     ->name('respon.detail');
+    Route::get('pengaduan/{param}/save', [ResponController::class, 'store'])
+    ->name('respon.store');
 
 });
 
