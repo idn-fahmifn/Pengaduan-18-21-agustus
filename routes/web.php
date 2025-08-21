@@ -28,6 +28,9 @@ Route::prefix('user')->middleware(['auth', 'verified'])->group(function(){
     Route::post('pengaduan/save', [PengaduanController::class, 'store'])
     ->name('pengaduan.store');
 
+    Route::get('pengaduan/{param}', [PengaduanController::class, 'detail'])
+    ->name('pengaduan.detail');
+
 
 });
 

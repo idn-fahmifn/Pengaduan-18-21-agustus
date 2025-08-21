@@ -46,4 +46,15 @@ class PengaduanController extends Controller
 
     }
 
+    public function detail($id)
+    {
+        $data = Pengaduan::where('id', $id)->first();
+
+        if($data){
+            $data = Pengaduan::find($id);
+        }else{
+            return redirect()->route('dashboard.user');
+        }
+        return view('user.pengaduan.detail', compact('data'));
+    }
 }

@@ -16,10 +16,20 @@ class DashboardController extends Controller
 
     public function user()
     {
-        $data = Pengaduan::where('user_id', Auth::user()->id)
-        ->get();
+        $data = Pengaduan::where('user_id', Auth::user()->id)->get();
+
+        // counter
+        $pengaduan_saya = Pengaduan::where('user_id', Auth::user()->id)->count();
+        $selesai = Pengaduan::where('user_id', Auth::user()->id)->where('status', 'selesai')->count();
+        $diproses = Pengaduan::where('user_id', Auth::user()->id)->where('status', 'diproses')->count();
+        $ditolak = Pengaduan::where('user_id', Auth::user()->id)->where('status', 'ditolak')->count();
+
         return view('user.dashboard', [
-            'data' => $data
+            'data' => $data,
+            'pengaduan_saya' => $pengaduan_saya,
+            'diproses' => $diproses,
+            'selesai' => $selesai,
+            'ditolak' => $ditolak,
         ]);
     }
 }
