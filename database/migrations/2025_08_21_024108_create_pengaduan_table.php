@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('judul_pengaduan');
             $table->string('dokumentasi');
             $table->text('deskripsi_pengaduan');
-            $table->enum('status',['pending','diproses','selesai','ditolak']);
+            $table->enum('status',['pending','diproses','selesai','ditolak'])
+            ->default('pending');
             $table->timestamps();
         });
     }

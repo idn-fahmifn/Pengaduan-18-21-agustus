@@ -9,7 +9,7 @@ Route::get('/', function () {
 });
 
 // grup admin
-Route::prefix('admin')->middleware(['auth', 'verified'])->group(function(){
+Route::prefix('admin')->middleware(['auth', 'verified','admin'])->group(function(){
 
     // halaman dashboard
     Route::get('dashboard', [DashboardController::class, 'admin'])->name('dashboard');
@@ -20,10 +20,12 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function(){
 Route::prefix('user')->middleware(['auth', 'verified'])->group(function(){
 
     // halaman dashboard
-    Route::get('dashboard', [DashboardController::class, 'user'])
-    ->name('dashboard.user');
+    Route::get('dashboard', [DashboardController::class, 'user'])->name('dashboard.user');
+
 
 });
+
+
 
 
 
