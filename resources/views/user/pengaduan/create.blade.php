@@ -15,10 +15,23 @@
                         <div>
                             <x-input-label for="judul_pengaduan" :value="__('Judul Pengaduan')" />
                             <x-text-input id="judul_pengaduan" name="judul_pengaduan" type="text" class="mt-1 block w-full"
-                                :value="old('judul_pengaduan', $user->judul_pengaduan)"
+                                :value="old('judul_pengaduan')"
                                 required autofocus autocomplete="judul_pengaduan" />
                             <x-input-error class="mt-2" :messages="$errors->get('judul_pengaduan')" />
                         </div>
+                        <div>
+                            <x-input-label for="dokumentasi" :value="__('Dokumentasi')" />
+                            <x-text-input id="dokumentasi" name="dokumentasi" type="file" class="p-3 mt-1 block w-full"
+                                :value="old('dokumentasi')"
+                                required autofocus autocomplete="dokumentasi" />
+                            <x-input-error class="mt-2" :messages="$errors->get('dokumentasi')" />
+                        </div>
+                        <div>
+                            <x-input-label for="deskripsi_pengaduan" :value="__('Deskripsi Pengaduan')" />
+                            <textarea name="deskripsi_pengaduan" class="mt-1 block w-full" id=""></textarea>
+                            <x-input-error class="mt-2" :messages="$errors->get('deskripsi_pengaduan')" />
+                        </div>
+                        <div>
 
 
                         <div class="flex items-center gap-4">
