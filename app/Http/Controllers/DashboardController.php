@@ -11,7 +11,20 @@ class DashboardController extends Controller
     // admin dashboard
     public function admin()
     {
-        return view('admin.dashboard');
+        $data = Pengaduan::paginate(3);
+
+        // counter
+        $total_pengaduan = Pengaduan::count();
+        $selesai = Pengaduan::where('status', 'selesai')->count();
+        $diproses = Pengaduan::where('status', 'diproses')->count();
+        $ditolak = Pengaduan::where('status', 'ditolak')->count();
+        return view('admin.dashboard', [
+            'data' => $data,
+            'total_pengaduan' => $total_pengaduan,
+            'diproses' => $diproses,
+            'selesai' => $selesai,
+            'ditolak' => $ditolak,
+        ]);
     }
 
     public function user()

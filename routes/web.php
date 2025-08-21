@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResponController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,6 +15,8 @@ Route::prefix('admin')->middleware(['auth', 'verified','admin'])->group(function
 
     // halaman dashboard
     Route::get('dashboard', [DashboardController::class, 'admin'])->name('dashboard');
+    Route::get('pengaduan/{param}', [ResponController::class, 'detail'])
+    ->name('respon.detail');
 
 });
 
@@ -33,9 +36,6 @@ Route::prefix('user')->middleware(['auth', 'verified'])->group(function(){
 
 
 });
-
-
-
 
 
 Route::middleware('auth')->group(function () {

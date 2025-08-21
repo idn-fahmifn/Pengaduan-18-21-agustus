@@ -159,5 +159,20 @@
             </div>
 
         </div>
+
+        @if ($data->status === 'pending' || $data->status === 'diproses')
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-4">
+                <div class="bg-white dark:bg-slate-800 overflow-hidden shadow-sm sm:rounded-lg p-4">
+
+                </div>
+            </div>
+        @endif
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-4">
+            <div class="bg-white dark:bg-slate-800 overflow-hidden shadow-sm sm:rounded-lg p-4">
+
+            </div>
+        </div>
+
     </div>
 </x-app-layout>
