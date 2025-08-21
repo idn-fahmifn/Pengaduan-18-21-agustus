@@ -102,7 +102,51 @@
                         @break
 
                         @case($data->status === 'selesai')
-                            selesai
+                            <div class="flex flex-col items-center text-center w-32">
+                                <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="text-xs text-gray-500">PENDING</p>
+                                </div>
+                            </div>
+
+                            <div class="flex-1 h-1 bg-teal-600"></div>
+
+                            <div class="flex flex-col items-center text-center w-32">
+                                <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="text-xs text-gray-500">DIPROSES</p>
+                                </div>
+                            </div>
+
+                            <div class="flex-1 h-1 bg-teal-600"></div>
+
+                            <div class="flex flex-col items-center text-center w-32">
+                                <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="text-xs text-teal-400">SELESAI</p>
+                                </div>
+                            </div>
                         @break
 
                         @default
