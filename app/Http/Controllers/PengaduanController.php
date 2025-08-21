@@ -42,7 +42,7 @@ class PengaduanController extends Controller
         }
 
         Pengaduan::create($simpan);
-        return back()->route('dashboard.user')->with('success', 'Laporan berhasil dibuat');
+        return redirect()->route('dashboard.user')->with('success', 'Laporan berhasil dibuat');
 
     }
 

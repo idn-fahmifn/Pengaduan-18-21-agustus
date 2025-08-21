@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-red-600 rounded-lg shadow-md p-6 flex justify-between items-center mb-8 dark:bg-slate-800">
                 <h1 class="text-2xl font-bold text-white">Laporan Saya</h1>
-                <a href="#"
+                <a href="{{route('pengaduan.create')}}"
                     class="bg-white dark:bg-red-600 text-red-600 dark:text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-gray-100 dark:hover:bg-red-800">
                     Buat Laporan Baru
                 </a>
@@ -73,6 +73,9 @@
 
                         </a>
                     @empty
+                        <div class="min-w-full p-4 bg-yellow-200 mt-4 rounded-md">
+                            <span>Anda belum melakukan laporan</span>
+                        </div>
                     @endforelse
 
 
