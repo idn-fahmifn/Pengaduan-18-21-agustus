@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengaduan;
+use App\Models\Respon;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,12 +50,13 @@ class PengaduanController extends Controller
     public function detail($id)
     {
         $data = Pengaduan::where('id', $id)->first();
+        $respon = Respon::where('pengaduan_id', $id)->get();
 
         if($data){
             $data = Pengaduan::find($id);
         }else{
             return redirect()->route('dashboard.user');
         }
-        return view('user.pengaduan.detail', compact('data'));
+        return view('user.pengaduan.detail', compact('data', 'respon'));
     }
 }
